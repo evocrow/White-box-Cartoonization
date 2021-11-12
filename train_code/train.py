@@ -120,14 +120,14 @@ def train(args):
         sess.run(tf.global_variables_initializer())
         saver.restore(sess, tf.train.latest_checkpoint('pretrain/saved_models'))
 
-        face_photo_dir = 'dataset/photo_face'
+        face_photo_dir = 'dataset/face_photo'
         face_photo_list = utils.load_image_list(face_photo_dir)
-        scenery_photo_dir = 'dataset/photo_scenery'
+        scenery_photo_dir = 'dataset/scenery_photo'
         scenery_photo_list = utils.load_image_list(scenery_photo_dir)
 
-        face_cartoon_dir = 'dataset/cartoon_face'
+        face_cartoon_dir = 'dataset/face_cartoon'
         face_cartoon_list = utils.load_image_list(face_cartoon_dir)
-        scenery_cartoon_dir = 'dataset/cartoon_scenery'
+        scenery_cartoon_dir = 'dataset/scenery_cartoon'
         scenery_cartoon_list = utils.load_image_list(scenery_cartoon_dir)
 
         for total_iter in tqdm(range(args.total_iter)):

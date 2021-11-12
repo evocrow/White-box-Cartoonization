@@ -67,9 +67,9 @@ def train(args):
     with tf.device('/device:GPU:0'):
 
         sess.run(tf.global_variables_initializer())
-        face_photo_dir = 'dataset/photo_face'
+        face_photo_dir = 'dataset/face_photo'
         face_photo_list = utils.load_image_list(face_photo_dir)
-        scenery_photo_dir = 'dataset/photo_scenery'
+        scenery_photo_dir = 'dataset/scenery_photo'
         scenery_photo_list = utils.load_image_list(scenery_photo_dir)
 
 
@@ -86,7 +86,7 @@ def train(args):
 
                 print('pretrain, iter: {}, recon_loss: {}'.format(total_iter, r_loss))
                 if np.mod(total_iter+1, 500 ) == 0:
-                    saver.save(sess, args.save_dir+'save_models/model', 
+                    saver.save(sess, args.save_dir+'/saved_models/model', 
                                write_meta_graph=False, global_step=total_iter)
                      
                     photo_face = utils.next_batch(face_photo_list, args.batch_size)
